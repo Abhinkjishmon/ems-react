@@ -1,9 +1,20 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Admin from './components/Admin';
+import Edit from './components/Edit';
+import Add from './components/Add';
+import View from './components/View';
+
 
 function App() {
   return (
     <div className="App">
-      <h1 className='text-primary text-center mt-5'><i className='fa fa-home me-3'></i>Employee Management</h1>
+      <Routes>
+        <Route path='' element={<Admin />}/>
+        <Route path='add' element={<Add />}/>
+        <Route path='edit/:id' element={<Edit />}/>
+        <Route path='view/:id' element={<View />}/>
+      </Routes>
     </div>
   );
 }
