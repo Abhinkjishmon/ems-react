@@ -1,12 +1,23 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 
+
 const Admin = () => {
+  const [allEmployees,setAllEmployees] = useState([])
+
+  const fetchData = async ()=>{
+    const result = await axios.get('http://localhost:8000/get-all-employees')
+    console.log(result.data.employees);
+  }
+  useEffect(()=>{
+    fetchData()
+  },[])
   return (
     <div>
       <div className="container-fluid mt-5">
         <h1 ><i className='fa-solid fa-user-group'></i>Employee Management App
-          <a className='btn btn-success ms-5'><i className='fa-solid fa-user-plus'></i> Add Employee</a>
+          <a className='btn btn-success ms-5'><i className='fa-solid fa-user-plus me-2'></i> Add Employee</a>
         </h1>
         <p style={{ textAlign: 'justify' }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
@@ -24,7 +35,7 @@ const Admin = () => {
       </div>
       {/* table design */}
       <div className="container mt-2 mb-2">
-        <h1 className='text-primary'>Employee Details</h1>
+        <h1 className='text-primary mb-3'>Employee Details</h1>
         <Table striped bordered hover>
           <thead>
             <tr>
