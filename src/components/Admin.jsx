@@ -8,8 +8,10 @@ const Admin = () => {
 
   const fetchData = async ()=>{
     const result = await axios.get('http://localhost:8000/get-all-employees')
-    console.log(result.data.employees);
+    // console.log(result.data.employees)
+    setAllEmployees(result.data.employees);
   }
+  console.log(allEmployees);
   useEffect(()=>{
     fetchData()
   },[])
