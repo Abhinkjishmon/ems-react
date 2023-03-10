@@ -4,17 +4,17 @@ import Table from 'react-bootstrap/Table';
 
 
 const Admin = () => {
-  const [allEmployees,setAllEmployees] = useState([])
+  const [allEmployees, setAllEmployees] = useState([])
 
-  const fetchData = async ()=>{
+  const fetchData = async () => {
     const result = await axios.get('http://localhost:8000/get-all-employees')
     // console.log(result.data.employees)
     setAllEmployees(result.data.employees);
   }
   console.log(allEmployees);
-  useEffect(()=>{
+  useEffect(() => {
     fetchData()
-  },[])
+  }, [])
   return (
     <div>
       <div className="container-fluid mt-5">
@@ -50,17 +50,21 @@ const Admin = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>34</td>
-              <td>Developer</td>
-              <td>67000</td>
-              <td>
-                <button className='btn btn-warning me-3'><i className='fa-solid fa-pen'></i></button>
-                <button className='btn btn-danger me-3'><i className='fa-solid fa-trash'></i></button>
-              </td>
-            </tr>
+            {
+              allEmployees?.map((item,index) => (
+                <tr>
+                  <td>{index+1}</td>
+                  <td>{item.uname}</td>
+                  <td>{item.age}</td>
+                  <td>{item.desg}</td>
+                  <td>{item.salary}</td>
+                  <td>
+                    <button className='btn btn-warning me-3'><i className='fa-solid fa-pen'></i></button>
+                    <button className='btn btn-danger me-3'><i className='fa-solid fa-trash'></i></button>
+                  </td>
+                </tr>
+              ))
+            }
           </tbody>
         </Table>
       </div>
