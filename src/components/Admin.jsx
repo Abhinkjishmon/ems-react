@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom';
 
 
 const Admin = () => {
@@ -19,7 +20,9 @@ const Admin = () => {
     <div>
       <div className="container-fluid mt-5">
         <h1 ><i className='fa-solid fa-user-group'></i>Employee Management App
-          <a className='btn btn-success ms-5'><i className='fa-solid fa-user-plus me-2'></i> Add Employee</a>
+          <Link to={'/add'}>
+            <a className='btn btn-success ms-5'><i className='fa-solid fa-user-plus me-2'></i> Add Employee</a>
+          </Link>
         </h1>
         <p style={{ textAlign: 'justify' }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
@@ -51,9 +54,9 @@ const Admin = () => {
           </thead>
           <tbody>
             {
-              allEmployees?.map((item,index) => (
+              allEmployees?.map((item, index) => (
                 <tr>
-                  <td>{index+1}</td>
+                  <td>{index + 1}</td>
                   <td>{item.uname}</td>
                   <td>{item.age}</td>
                   <td>{item.desg}</td>
