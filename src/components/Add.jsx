@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 
 
+
 const Add = () => {
+  const [id,setId] = useState('')
+  const [empName,setName] = useState('')
+  const [empAge,setAge] = useState('')
+  const [empDesg,setDesg] = useState('')
+  const [empSalary,setSalary] = useState(0)
   return (
     <div>
       <div className="container-fluid mt-5">
@@ -50,6 +56,7 @@ const Add = () => {
             <Button className='ms-3' variant="warning" type="submit">
               Close
             </Button>
+            
           </Link>
         </Form>
 
