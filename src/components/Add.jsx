@@ -4,13 +4,19 @@ import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 
 
-
 const Add = () => {
-  const [id,setId] = useState('')
-  const [empName,setName] = useState('')
-  const [empAge,setAge] = useState('')
-  const [empDesg,setDesg] = useState('')
-  const [empSalary,setSalary] = useState(0)
+  const [id, setId] = useState('')
+  const [empName, setName] = useState('')
+  const [empAge, setAge] = useState('')
+  const [empDesg, setDesg] = useState('')
+  const [empSalary, setSalary] = useState(0)
+
+  console.log('name', empName);
+  console.log('age', empAge);
+  console.log('desg', empDesg);
+  console.log('salary', empSalary);
+
+
   return (
     <div>
       <div className="container-fluid mt-5">
@@ -35,19 +41,27 @@ const Add = () => {
         <Form>
           <Form.Group className="mb-3" controlId="formName">
             <Form.Label>Employee Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter Employee Name" />
+            <Form.Control type="text" placeholder="Enter Employee Name"
+              onChange={(e) => setName(e.target.value)}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formAge">
             <Form.Label>Employee Age</Form.Label>
-            <Form.Control type="text" placeholder="Enter Employee Age" />
+            <Form.Control type="text" placeholder="Enter Employee Age"
+              onChange={(e) => setAge(e.target.value)}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formDesg">
             <Form.Label>Employee Designation</Form.Label>
-            <Form.Control type="text" placeholder="Enter Employee Designation" />
+            <Form.Control type="text" placeholder="Enter Employee Designation"
+              onChange={(e) => setDesg(e.target.value)}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formSalary">
             <Form.Label>Employee Salary</Form.Label>
-            <Form.Control type="text" placeholder="Enter Employee Salary" />
+            <Form.Control type="text" placeholder="Enter Employee Salary"
+              onChange={(e) => setSalary(e.target.value)}
+            />
           </Form.Group>
           <Button variant="success" type="submit">
             Add
@@ -56,7 +70,7 @@ const Add = () => {
             <Button className='ms-3' variant="warning" type="submit">
               Close
             </Button>
-            
+
           </Link>
         </Form>
 
